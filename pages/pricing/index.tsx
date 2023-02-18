@@ -1,13 +1,13 @@
-import { MainLayout } from "../components/layouts/MainLayout";
-import { Inter } from "@next/font/google";
+import { MainLayout } from "@/components/layouts/MainLayout";
 import Image from "next/image";
 import styles from "@/styles/Home.module.css";
-import Link from "next/link";
+import React from "react";
 import { ReactElement } from "react";
-
+import { Inter } from "@next/font/google";
+import Link from "next/link";
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home() {
+export default function PricingPage() {
   return (
     <>
       <div className={styles.center}>
@@ -25,9 +25,9 @@ export default function Home() {
       </div>
 
       <div className={styles.grid}>
-        <Link href="/about" className={styles.card}>
+        <Link href="/" className={styles.card}>
           <h2 className={inter.className}>
-            About <span>-&gt;</span>
+            Index <span>-&gt;</span>
           </h2>
           <p className={inter.className}>
             Find in-depth information about Next.js features and&nbsp;API.
@@ -38,6 +38,6 @@ export default function Home() {
   );
 }
 
-Home.getLayout = function getLayout(page: ReactElement) {
-  return <MainLayout title="Home Page">{page}</MainLayout>;
-};
+PricingPage.getLayout = (page: ReactElement) => (
+  <MainLayout title="Pricing Page">{page}</MainLayout>
+);

@@ -1,13 +1,14 @@
-import { MainLayout } from "../components/layouts/MainLayout";
-import { Inter } from "@next/font/google";
 import Image from "next/image";
+import { Inter } from "@next/font/google";
 import styles from "@/styles/Home.module.css";
 import Link from "next/link";
+import { MainLayout } from "../components/layouts/MainLayout";
+import { DarkLayout } from "../components/layouts/DarkLayout";
 import { ReactElement } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home() {
+export default function AboutPage() {
   return (
     <>
       <div className={styles.center}>
@@ -25,9 +26,9 @@ export default function Home() {
       </div>
 
       <div className={styles.grid}>
-        <Link href="/about" className={styles.card}>
+        <Link href="/" className={styles.card}>
           <h2 className={inter.className}>
-            About <span>-&gt;</span>
+            Home <span>-&gt;</span>
           </h2>
           <p className={inter.className}>
             Find in-depth information about Next.js features and&nbsp;API.
@@ -38,6 +39,10 @@ export default function Home() {
   );
 }
 
-Home.getLayout = function getLayout(page: ReactElement) {
-  return <MainLayout title="Home Page">{page}</MainLayout>;
+AboutPage.getLayout = function getLayout(page: ReactElement) {
+  return (
+    <MainLayout title="About Page">
+      <DarkLayout>{page}</DarkLayout>
+    </MainLayout>
+  );
 };
